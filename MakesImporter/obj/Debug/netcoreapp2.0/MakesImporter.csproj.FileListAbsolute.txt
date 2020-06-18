@@ -1,0 +1,3 @@
+/home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp2.0/MakesImporter.csprojAssemblyReference.cache
+/home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp2.0/MakesImporter.AssemblyInfoInputs.cache
+/home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp2.0/MakesImporter.AssemblyInfo.cs
