@@ -1,6 +1,3 @@
-/home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp3.0/MakesImporter.csprojAssemblyReference.cache
-/home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp3.0/MakesImporter.AssemblyInfoInputs.cache
-/home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp3.0/MakesImporter.AssemblyInfo.cs
 /home/phil/Dev/alsofits/MakesImporter/bin/Debug/netcoreapp3.0/MakesImporter
 /home/phil/Dev/alsofits/MakesImporter/bin/Debug/netcoreapp3.0/MakesImporter.deps.json
 /home/phil/Dev/alsofits/MakesImporter/bin/Debug/netcoreapp3.0/MakesImporter.runtimeconfig.json
@@ -8,6 +5,9 @@
 /home/phil/Dev/alsofits/MakesImporter/bin/Debug/netcoreapp3.0/MakesImporter.dll
 /home/phil/Dev/alsofits/MakesImporter/bin/Debug/netcoreapp3.0/MakesImporter.pdb
 /home/phil/Dev/alsofits/MakesImporter/bin/Debug/netcoreapp3.0/CsvHelper.dll
+/home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp3.0/MakesImporter.csprojAssemblyReference.cache
+/home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp3.0/MakesImporter.AssemblyInfoInputs.cache
+/home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp3.0/MakesImporter.AssemblyInfo.cs
 /home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp3.0/MakesImporter.csproj.CopyComplete
 /home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp3.0/MakesImporter.dll
 /home/phil/Dev/alsofits/MakesImporter/obj/Debug/netcoreapp3.0/MakesImporter.pdb

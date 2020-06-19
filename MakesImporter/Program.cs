@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using CsvHelper;
@@ -10,6 +11,7 @@ namespace MakesImporter
         static void Main(string[] args)
         {
             Console.WriteLine("Opening makes and models file");
+            var finalMakeAndModels = new List<MakeAndModels>();
 
             using (var sr = new StreamReader("makesAndModels.csv"))
             using (var csv = new CsvReader(sr, System.Globalization.CultureInfo.InvariantCulture)){
@@ -25,19 +27,33 @@ namespace MakesImporter
                                         r.BaseModel
                                     } 
                                     
-                                    into simpleModel select new { make = simpleModel.Key.Make, model = simpleModel.Key.BaseModel };
+                                    into simpleModel select new 
+                                    { 
+                                        make = simpleModel.Key.Make, 
+                                        model = simpleModel.Key.BaseModel,                                        
+                                    };
                 
                 var atAirport = distinctModels.ToList();
 
-                foreach (var m in atAirport)
-                {
-                    Console.WriteLine($"Make {m.make} Model {m.model}");
+                //create a hierarchy with a subquery
+                foreach(var make in atAirport.Select(t => t.make )){
+                    if (!finalMakeAndModels.Any(t => t.Make == make))
+                    finalMakeAndModels.Add(new MakeAndModels {Make = make, 
+                        Models = atAirport.Where(t => t.make == make).Select(t => t.model).ToList()
+                    });
                 }
 
             }
             
         }
         
+    }
+
+    class MakeAndModels{
+        
+
+        public string Make { get; set; }
+        public List<String> Models {get; set;} = new List<string>();
     }
 
     class MakeAndModel{
