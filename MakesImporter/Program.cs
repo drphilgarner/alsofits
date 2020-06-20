@@ -24,13 +24,15 @@ namespace MakesImporter
                                     where !r.BaseModel.Contains("MISSING")
                                     group r by new {
                                         r.Make,
-                                        r.BaseModel
+                                        r.BaseModel,
+                                        r.BaseModelLonger
                                     } 
                                     
                                     into simpleModel select new 
                                     { 
                                         make = simpleModel.Key.Make, 
-                                        model = simpleModel.Key.BaseModel,                                        
+                                        model = simpleModel.Key.BaseModel,
+                                        longerModel = simpleModel.Key.BaseModelLonger                                       
                                     };
                 
                 var atAirport = distinctModels.ToList();
@@ -39,8 +41,18 @@ namespace MakesImporter
                 foreach(var make in atAirport.Select(t => t.make )){
                     if (!finalMakeAndModels.Any(t => t.Make == make))
                     finalMakeAndModels.Add(new MakeAndModels {Make = make, 
-                        Models = atAirport.Where(t => t.make == make).Select(t => t.model).ToList()
+                        CarModels = atAirport.Where(t => t.make == make).Select(t => new CarModel{
+                            ModelName = t.model,
+                            LongerModelName = t.longerModel
+                        }).ToList()
                     });
+                }
+
+                foreach(var f in finalMakeAndModels){
+                    Console.WriteLine($"Make: {f.Make}");
+                    foreach(var m in f.CarModels){
+                        Console.WriteLine($"{m.ModelName} or even longer {m.LongerModelName}");
+                    }
                 }
 
             }
@@ -53,7 +65,13 @@ namespace MakesImporter
         
 
         public string Make { get; set; }
-        public List<String> Models {get; set;} = new List<string>();
+        public List<CarModel> CarModels {get; set;} = new List<CarModel>();
+    }
+
+    class CarModel{
+        public string ModelName { get; set; }
+        public string LongerModelName { get; set; }
+        
     }
 
     class MakeAndModel{
@@ -63,6 +81,16 @@ namespace MakesImporter
         public string BaseModel {
             get {
             return ModelDetail?.Split(" ").FirstOrDefault(); 
+            }
+        }
+
+        public string BaseModelLonger{
+            get {
+                var twoStrings = ModelDetail?.Split(" ").Take(2).ToList();
+                if (twoStrings.Count != 2)
+                    return String.Empty;
+                
+                return $"{twoStrings[0]} {twoStrings[1]}";
             }
         }
     }
