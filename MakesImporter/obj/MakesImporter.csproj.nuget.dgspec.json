@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/home/phil/Dev/alsofits/MakesImporter/MakesImporter.csproj": {}
+    "C:\\Users\\live\\source\\alsofits\\MakesImporter\\MakesImporter.csproj": {}
   },
   "projects": {
-    "/home/phil/Dev/alsofits/MakesImporter/MakesImporter.csproj": {
+    "C:\\Users\\live\\source\\alsofits\\MakesImporter\\MakesImporter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/phil/Dev/alsofits/MakesImporter/MakesImporter.csproj",
+        "projectUniqueName": "C:\\Users\\live\\source\\alsofits\\MakesImporter\\MakesImporter.csproj",
         "projectName": "MakesImporter",
-        "projectPath": "/home/phil/Dev/alsofits/MakesImporter/MakesImporter.csproj",
-        "packagesPath": "/home/phil/.nuget/packages/",
-        "outputPath": "/home/phil/Dev/alsofits/MakesImporter/obj/",
+        "projectPath": "C:\\Users\\live\\source\\alsofits\\MakesImporter\\MakesImporter.csproj",
+        "packagesPath": "C:\\Users\\live\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\live\\source\\alsofits\\MakesImporter\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/phil/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\live\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +46,10 @@
             "CsvHelper": {
               "target": "Package",
               "version": "[15.0.5, )"
+            },
+            "dapper": {
+              "target": "Package",
+              "version": "(, )"
             }
           },
           "imports": [
@@ -56,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
