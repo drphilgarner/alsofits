@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using CsvHelper;
+using Dapper;
 
 namespace MakesImporter
 {
@@ -18,21 +20,21 @@ namespace MakesImporter
                             
                 csv.Configuration.HasHeaderRecord = false;
 
-                var records = csv.GetRecords<MakeAndModel>();
+                var records = csv.GetRecords<MakeAndModel>().ToList();
                 
                 var distinctModels = from r in records
                                     where !r.BaseModel.Contains("MISSING")
                                     group r by new {
                                         r.Make,
-                                        r.BaseModel,
-                                        r.BaseModelLonger
+                                        r.BaseModel
+                                        //r.BaseModelLonger
                                     } 
                                     
                                     into simpleModel select new 
                                     { 
                                         make = simpleModel.Key.Make, 
-                                        model = simpleModel.Key.BaseModel,
-                                        longerModel = simpleModel.Key.BaseModelLonger                                       
+                                        model = simpleModel.Key.BaseModel
+                                        //longerModel = simpleModel.Key.BaseModelLonger                                       
                                     };
                 
                 var atAirport = distinctModels.ToList();
@@ -40,18 +42,47 @@ namespace MakesImporter
                 //create a hierarchy with a subquery
                 foreach(var make in atAirport.Select(t => t.make )){
                     if (!finalMakeAndModels.Any(t => t.Make == make))
-                    finalMakeAndModels.Add(new MakeAndModels {Make = make, 
-                        CarModels = atAirport.Where(t => t.make == make).Select(t => new CarModel{
-                            ModelName = t.model,
-                            LongerModelName = t.longerModel
-                        }).ToList()
-                    });
+                    {
+                        finalMakeAndModels.Add(new MakeAndModels {Make = make, 
+                            CarModels = atAirport.Where(t => t.make == make).Select(t => new CarModel{
+                                ModelName = t.model
+                                // TrimLevels = (from r in records
+                                //         where r.BaseModel == t.model
+                                //         && r.Make == t.make
+                                //         select r.ModelDetail)?.ToList()
+                            }).ToList()
+                        });
+                    }
                 }
 
-                foreach(var f in finalMakeAndModels){
-                    Console.WriteLine($"Make: {f.Make}");
-                    foreach(var m in f.CarModels){
-                        Console.WriteLine($"{m.ModelName} or even longer {m.LongerModelName}");
+                var insertManufacturer = "INSERT INTO tbl_Manufacturer (FullName) OUTPUT INSERTED.[ManufacturerId] values (@FullName);";
+                var insertModel = "INSERT INTO tbl_Model (FullName, ManufacturerId) OUTPUT INSERTED.[ModelId] values (@FullName, @ManufacturerId)";
+
+
+                var connStr = new SqlConnectionStringBuilder{
+                    DataSource = "192.168.1.94",
+                    InitialCatalog = "alsofits",
+                    Password = "t6;h5W`AVTv[L+>7",
+                    UserID = "sa"
+                };
+
+                using (var conn = new SqlConnection(connStr.ToString())){
+                    
+
+                    foreach(var f in finalMakeAndModels){
+
+                        var manufacturerRow = conn.QuerySingle<int>(insertManufacturer, new {FullName = f.Make} );
+                        
+                        Console.WriteLine($"Make: {f.Make} row is {manufacturerRow}");
+                        foreach(var m in f.CarModels){
+
+                            var modelRow = conn.QuerySingle<int>(insertModel, new {FullName = m.ModelName, ManufacturerId = manufacturerRow});
+                            Console.WriteLine($"{m.ModelName}");
+
+                            // var trims = $"Trims: {String.Join(", ",m.TrimLevels)}";
+                            // Console.WriteLine(trims);
+                            
+                        }
                     }
                 }
 
@@ -70,7 +101,7 @@ namespace MakesImporter
 
     class CarModel{
         public string ModelName { get; set; }
-        public string LongerModelName { get; set; }
+        public List<string> TrimLevels { get; set; }
         
     }
 
