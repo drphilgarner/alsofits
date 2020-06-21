@@ -46,18 +46,23 @@ namespace MakesImporter
                         finalMakeAndModels.Add(new MakeAndModels {Make = make, 
                             CarModels = atAirport.Where(t => t.make == make).Select(t => new CarModel{
                                 ModelName = t.model
-                                // TrimLevels = (from r in records
-                                //         where r.BaseModel == t.model
-                                //         && r.Make == t.make
-                                //         select r.ModelDetail)?.ToList()
                             }).ToList()
                         });
                     }
                 }
 
+                foreach (var fmm in finalMakeAndModels){
+                    foreach (var mod in fmm.CarModels){
+                        
+                        var trims = records.Where(r => r.BaseModel == mod.ModelName).Select(t => t.ModelDetail).ToList();
+                        Console.WriteLine($"{mod.ModelName} could have {trims.Count} trims");
+                        mod.TrimLevels = trims;
+                    }
+                }
+
                 var insertManufacturer = "INSERT INTO tbl_Manufacturer (FullName) OUTPUT INSERTED.[ManufacturerId] values (@FullName);";
                 var insertModel = "INSERT INTO tbl_Model (FullName, ManufacturerId) OUTPUT INSERTED.[ModelId] values (@FullName, @ManufacturerId)";
-
+                var insertTrim = "INSERT INTO tbl_TrimLevel (FullName, ModelId) OUTPUT INSERTED.[TrimId] values (@FullName, @ModelId)";
 
                 var connStr = new SqlConnectionStringBuilder{
                     DataSource = "192.168.1.94",
@@ -78,6 +83,12 @@ namespace MakesImporter
 
                             var modelRow = conn.QuerySingle<int>(insertModel, new {FullName = m.ModelName, ManufacturerId = manufacturerRow});
                             Console.WriteLine($"{m.ModelName}");
+
+                            foreach (var t in m.TrimLevels){
+                                var trimRow = conn.QuerySingle<int>(insertTrim, new {FullName = t, ModelId = modelRow});
+                            Console.WriteLine(t);
+
+                            }
 
                             // var trims = $"Trims: {String.Join(", ",m.TrimLevels)}";
                             // Console.WriteLine(trims);
