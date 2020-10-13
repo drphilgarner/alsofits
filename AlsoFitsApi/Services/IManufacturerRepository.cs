@@ -4,8 +4,7 @@ namespace AlsoFitsApi.Services
 {
     public interface IManufacturerRepository
     {
-         IEnumerable<Manufacturer> GetManufacturers(int amount);
-
+         IEnumerable<Manufacturer> GetManufacturers();
 
     }
 

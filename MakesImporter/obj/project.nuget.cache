@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "airenvhI3GIn26k52Z+giYhhIDoZ9prGeYViE/i6U0RS7Mg7VQbCicsKigZVEnkwNFJNFc5fs4kIIuwpoApDLA==",
+  "dgSpecHash": "iNLFw+3r6a1M3avnMOaAshru5PPQhjNSXGbMwdG4rkMcRmzxRIX0oYbuHiHuQ+ueRD7xHqHxEQi+A2DsvNWrEQ==",
   "success": true,
   "projectFilePath": "/home/phil/Dev/alsofits/MakesImporter/MakesImporter.csproj",
   "expectedPackageFiles": [
@@ -20,8 +20,7 @@
     "/home/phil/.nuget/packages/system.security.accesscontrol/4.7.0/system.security.accesscontrol.4.7.0.nupkg.sha512",
     "/home/phil/.nuget/packages/system.security.principal.windows/4.7.0/system.security.principal.windows.4.7.0.nupkg.sha512",
     "/home/phil/.nuget/packages/system.text.encoding.codepages/4.7.0/system.text.encoding.codepages.4.7.0.nupkg.sha512",
-    "/home/phil/.nuget/packages/microsoft.aspnetcore.app.ref/3.0.1/microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
-    "/home/phil/.nuget/packages/microsoft.netcore.app.host.linux-x64/3.0.3/microsoft.netcore.app.host.linux-x64.3.0.3.nupkg.sha512"
+    "/home/phil/.nuget/packages/microsoft.netcore.app.ref/3.0.0/microsoft.netcore.app.ref.3.0.0.nupkg.sha512"
   ],
   "logs": []
 }
