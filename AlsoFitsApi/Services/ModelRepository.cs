@@ -7,22 +7,22 @@ using Microsoft.Extensions.Configuration;
 
 namespace AlsoFitsApi.Services
 {
-    public class ManufacturerRepository : IManufacturerRepository
+    public class ModelRepository : IModelRepository
     {
         private readonly IConfiguration _config;
         private IDbConnection _db;
-        public ManufacturerRepository(IConfiguration config)
+        public ModelRepository(IConfiguration config)
         {
             this._config = config;
             this._db = new SqlConnection(_config.GetConnectionString("prod"));
 
         }
 
-        public IEnumerable<Manufacturer> GetManufacturers()
+        public IEnumerable<Model> GetModels(int ManufacturerId)
         {
-            return _db.Query<Manufacturer>("SELECT [ManufacturerId],[FullName] FROM [alsofits].[dbo].[tbl_Manufacturer]");
+            return _db.Query<Model>("SELECT [ModelId],[FullName] FROM [alsofits].[dbo].[tbl_Model] WHERE [ManufacturerId] = @ManufacturerId",new {ManufacturerId = ManufacturerId});
         }
-
+        
     }
 
 

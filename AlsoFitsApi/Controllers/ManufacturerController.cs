@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using AlsoFitsApi.Controllers.Model;
-using System.Data;
+
 using AlsoFitsApi.Services;
+using AlsoFitsApi.ApiModel;
 
 namespace AlsoFitsApi.Controllers
 {

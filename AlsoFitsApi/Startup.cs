@@ -26,7 +26,10 @@ namespace AlsoFitsApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IModelRepository, ModelRepository>();
             services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
+            services.AddScoped<ICategoryRepository, CatergoryRepository>();
+
 
             services.AddControllers();
         }

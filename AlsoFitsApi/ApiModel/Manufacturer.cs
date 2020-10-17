@@ -10,7 +10,4 @@ namespace AlsoFitsApi.ApiModel
         
     }
 
-    
-
-
 }
