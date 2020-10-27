@@ -18,6 +18,11 @@ namespace AlsoFitsApi.Services
 
         }
 
+        public Model GetModel(int modelId)
+        {
+            return _db.QuerySingle<Model>("SELECT [ModelId],[FullName],[ManufacturerId] from [alsofits].[dbo].[tbl_Model] WHERE [ModelId] = @ModelId", new {ModelId = modelId});
+        }
+
         public IEnumerable<Model> GetModels(int ManufacturerId)
         {
             return _db.Query<Model>("SELECT [ModelId],[FullName] FROM [alsofits].[dbo].[tbl_Model] WHERE [ManufacturerId] = @ManufacturerId",new {ManufacturerId = ManufacturerId});

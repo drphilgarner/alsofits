@@ -29,6 +29,7 @@ namespace AlsoFitsApi
             services.AddScoped<IModelRepository, ModelRepository>();
             services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
             services.AddScoped<ICategoryRepository, CatergoryRepository>();
+            services.AddScoped<IPartsRepository, PartsRepository>();
 
 
             services.AddControllers();
