@@ -23,11 +23,20 @@ namespace AlsoFitsApi.Controllers
             this._modelRepository = modelRepository;
         }
 
+        
+        public class Complex { public int number {get;set;} public string word {get;set;}}
+        
         [HttpPost]
         public IActionResult Post(AddPartRequest request)
-        {
-            _logger.LogInformation("Received AddPartRequest", request);
 
+//        public IActionResult Post(Complex request)
+        
+        {
+            _logger.LogInformation("Received AddPartRequest {0} {1} {2}",
+                                   request.fullDesc,
+                                   request.partCategoryId,
+                                   request.compatibleModels?.FirstOrDefault());
+            
 
             if (request.compatibleModels.ToList().Count <2)
                 return BadRequest();
@@ -58,7 +67,7 @@ namespace AlsoFitsApi.Controllers
 
     public class AddPartRequest
     {
-        public IEnumerable<int> compatibleModels {get;set;} 
+        public List<int> compatibleModels {get;set;} 
         public int partCategoryId {get;set;} 
         public string shortDesc {get;set;} 
         public string fullDesc {get;set;} 

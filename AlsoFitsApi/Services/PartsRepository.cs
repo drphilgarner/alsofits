@@ -37,7 +37,7 @@ namespace AlsoFitsApi.Services
             
             //add the part
             var result = _db.Query(
-                "INSERT into [alsofits].[dbo].[tbl_Part] (FullDescription,ShortDescription,PartCategoryId) VALUES ({@FullDescription, @ShortDescription, @PartCategoryId}); SELECT CAST(SCOPE_IDENTITY() as int)",
+                "INSERT into [alsofits].[dbo].[tbl_Part] (FullDescription,ShortDescription,PartCategoryChildId) VALUES (@FullDescription, @ShortDescription, @PartCategoryId); SELECT CAST(SCOPE_IDENTITY() as int)",
                 new { FullDescription = fullDesc, ShortDescription = shortDesc, PartCategoryId = partCategoryId });
 
             return (int)result.Single();
