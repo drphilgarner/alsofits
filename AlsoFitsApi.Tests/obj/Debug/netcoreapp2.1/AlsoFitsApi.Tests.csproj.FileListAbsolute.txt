@@ -1,0 +1,12 @@
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/bin/Debug/netcoreapp2.1/AlsoFitsApi.Tests.deps.json
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/bin/Debug/netcoreapp2.1/AlsoFitsApi.Tests.runtimeconfig.json
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/bin/Debug/netcoreapp2.1/AlsoFitsApi.Tests.runtimeconfig.dev.json
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/bin/Debug/netcoreapp2.1/AlsoFitsApi.Tests.dll
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/bin/Debug/netcoreapp2.1/AlsoFitsApi.Tests.pdb
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netcoreapp2.1/AlsoFitsApi.Tests.csprojAssemblyReference.cache
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netcoreapp2.1/AlsoFitsApi.Tests.AssemblyInfoInputs.cache
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netcoreapp2.1/AlsoFitsApi.Tests.AssemblyInfo.cs
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netcoreapp2.1/AlsoFitsApi.Tests.csproj.CoreCompileInputs.cache
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netcoreapp2.1/AlsoFitsApi.Tests.dll
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netcoreapp2.1/AlsoFitsApi.Tests.pdb
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netcoreapp2.1/AlsoFitsApi.Tests.genruntimeconfig.cache

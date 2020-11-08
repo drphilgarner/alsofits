@@ -27,20 +27,34 @@ namespace AlsoFitsApi.Services
         }
 
         public int AddPart(IEnumerable<int> compatibleModels, 
-                            int partCategoryId, 
+                            int partCategoryChildId, 
                             string shortDesc, 
                             string fullDesc, 
                             string purchaseUrl = null, 
                             decimal? price = null, 
                             int? currencyId = null)
         {
-            
+            //todo: add exception handling
             //add the part
-            var result = _db.Query(
-                "INSERT into [alsofits].[dbo].[tbl_Part] (FullDescription,ShortDescription,PartCategoryChildId) VALUES (@FullDescription, @ShortDescription, @PartCategoryId); SELECT CAST(SCOPE_IDENTITY() as int)",
-                new { FullDescription = fullDesc, ShortDescription = shortDesc, PartCategoryId = partCategoryId });
+            var result = _db.Query<int>(
+                "INSERT into [alsofits].[dbo].[tbl_Part] (FullDescription,ShortDescription,PartCategoryChildId) VALUES (@FullDescription, @ShortDescription, @PartCategoryChildId); SELECT CAST(SCOPE_IDENTITY() as int)",
+                new { FullDescription = fullDesc, ShortDescription = shortDesc, PartCategoryChildId = partCategoryChildId });
 
-            return (int)result.Single();
+            var partId = result.Single();
+
+            
+
+            //add the partmodel rows
+            foreach (var modelId in compatibleModels)
+            {
+                var partModelResult = _db.Query(
+                    "INSERT INTO [alsofits].[dbo].[tbl_PartModel] (PartId, ModelId) VALUES (@PartId,@ModelId)",
+                    new {PartId = partId, modelId}
+                );
+            }
+
+            //todo: get this to return something sensible
+            return 1;
         }
 
         public PartModel GetPartModel(int modelId, int partId)

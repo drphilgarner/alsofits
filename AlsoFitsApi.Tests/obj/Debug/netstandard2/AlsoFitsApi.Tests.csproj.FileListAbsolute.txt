@@ -1,0 +1,9 @@
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/bin/Debug/netstandard2/AlsoFitsApi.Tests.deps.json
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/bin/Debug/netstandard2/AlsoFitsApi.Tests.dll
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/bin/Debug/netstandard2/AlsoFitsApi.Tests.pdb
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netstandard2/AlsoFitsApi.Tests.csprojAssemblyReference.cache
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netstandard2/AlsoFitsApi.Tests.AssemblyInfoInputs.cache
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netstandard2/AlsoFitsApi.Tests.AssemblyInfo.cs
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netstandard2/AlsoFitsApi.Tests.csproj.CoreCompileInputs.cache
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netstandard2/AlsoFitsApi.Tests.dll
+/home/phil/Dev/alsofits/AlsoFitsApi.Tests/obj/Debug/netstandard2/AlsoFitsApi.Tests.pdb
