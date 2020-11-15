@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using AlsoFitsApi.ApiModel;
+using AlsoFits.core.Model;
 using Microsoft.Extensions.Configuration;
 using Dapper;
 using System.Linq;

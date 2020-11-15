@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "WebApp/AlsoFitsWebApp"
+		},
+		{
+			"path": "AlsoFits.core"
 		}
 	],
 	"settings": {}

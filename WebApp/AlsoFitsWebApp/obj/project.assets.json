@@ -430,6 +430,16 @@
         "runtime": {
           "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
         }
+      },
+      "AlsoFits.core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/AlsoFits.core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AlsoFits.core.dll": {}
+        }
       }
     }
   },
@@ -1440,10 +1450,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "AlsoFits.core/1.0.0": {
+      "type": "project",
+      "path": "../../AlsoFits.core/AlsoFits.core.csproj",
+      "msbuildProject": "../../AlsoFits.core/AlsoFits.core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
+      "AlsoFits.core >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 3.2.0",
       "Microsoft.AspNetCore.Components.WebAssembly.Build >= 3.2.0",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 3.2.0",
@@ -1473,7 +1489,11 @@
       },
       "frameworks": {
         "netstandard2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/phil/Dev/alsofits/AlsoFits.core/AlsoFits.core.csproj": {
+              "projectPath": "/home/phil/Dev/alsofits/AlsoFits.core/AlsoFits.core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -1,16 +1,21 @@
 @page "/addpart"
 @inject HttpClient Http
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@using AlsoFits.core.Model
+
 
 
 <h1>Add a part</h1>
 
 <p>Select a manufacturer</p>
-<select @onchange="@fetchModels"  >
+<select @onchange="@fetchModels">
     @if (manufacturers != null)
     {
+
         @foreach (var manufacturer in manufacturers)
         {
-            <option value="@manufacturer.manufacturerId">@manufacturer.fullName</option>
+            <option value="@manufacturer.ManufacturerId">@manufacturer.FullName</option>
         }
     }
 </select>
@@ -21,26 +26,72 @@
     {
         @foreach (var model in models)
         {
-            <option value="@model.modelId">@model.fullName</option>
+            <option value="@model.ModelId">@model.FullName</option>
+        }
+    }
+</select>
+
+<p>Select a category</p>
+
+
+
+<select @onchange="@fetchChildCategories">
+
+    @if (partCategoryParents != null)
+    {
+        @foreach (var parent in partCategoryParents)
+        {
+            <option value="@parent.PartCategoryParentId">@parent.FullName</option>
         }
     }
 </select>
 
 
+<select @bind="@selectedPartCategoryChildId">
+
+    @if (partCategoryChildren != null)
+    {
+        @foreach (var child in partCategoryChildren)
+        {
+            <option value="@child.PartCategoryChildId">@child.FullName</option>
+        }
+    }
+</select>
 
 @code {
     private Manufacturer[] manufacturers;
     private Model[] models;
+    private PartCategoryParent[] partCategoryParents;
+    private PartCategoryChild[] partCategoryChildren;
     public int selectedManufacturerId {get;set;}
+
+    private int selectedPartCategoryParentId;
     private int selectedModelId;
+
+    private int selectedPartCategoryChildId;
     
     protected override async Task OnInitializedAsync()
     {
-        manufacturers = await Http.GetFromJsonAsync<Manufacturer[]>("http://localhost:5000/Manufacturer");
+        Console.WriteLine($"Connecting to {Configuration["apiHostUri"]}");
         
-        Console.WriteLine($"We have {manufacturers.Length} manufacturers, and the first one is {manufacturers.First().fullName}");
+        //load the manufacturers
+        manufacturers = await Http.GetFromJsonAsync<Manufacturer[]>($"{Configuration["apiHostUri"]}/Manufacturer");
+        
+        //load the parent categories
+        partCategoryParents = await Http.GetFromJsonAsync<PartCategoryParent[]>($"{Configuration["apiHostUri"]}/PartsCategory");
+        
+        Console.WriteLine($"We have {manufacturers.Length} manufacturers, and the first one is {manufacturers.First().FullName}");
 
+        //populate the models select
+        await fetchModels(new ChangeEventArgs {
+            Value = manufacturers.First().ManufacturerId
+            }
+        );
 
+        //populate the child parts category
+        await fetchChildCategories(new ChangeEventArgs{
+            Value = partCategoryParents.First().PartCategoryParentId
+        });
         
     }
 
@@ -48,23 +99,21 @@
     {
         
         selectedManufacturerId = int.Parse(e.Value.ToString());
-        models = await Http.GetFromJsonAsync<Model[]>($"http://localhost:5000/Model/{selectedManufacturerId}");        
+        models = await Http.GetFromJsonAsync<Model[]>($"{Configuration["apiHostUri"]}/Model/{selectedManufacturerId}");        
         
-        Console.WriteLine($"We have {models.Length} models, and the first one is {models.First().fullName}");
+        Console.WriteLine($"We have {models.Length} models, and the first one is {models.First().FullName}");
     
     }
 
-
-    public class Manufacturer
+    public async Task fetchChildCategories(ChangeEventArgs e)
     {
-        public int manufacturerId { get; set; }
-
-        public string fullName { get; set; }
+        
+        selectedPartCategoryParentId = int.Parse(e.Value.ToString());
+        partCategoryChildren = await Http.GetFromJsonAsync<PartCategoryChild[]>($"{Configuration["apiHostUri"]}/PartsCategory/{selectedPartCategoryParentId}");        
+        
+        Console.WriteLine($"We have {partCategoryChildren.Length} child categories, and the first one is {partCategoryChildren.First().FullName}");
+    
     }
 
-    public class Model{
-        public int modelId {get;set;}
-        public string fullName {get;set;}
-    }
 
 }

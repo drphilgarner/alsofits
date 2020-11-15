@@ -34,3 +34,5 @@
 /home/phil/Dev/alsofits/AlsoFitsApi/obj/Debug/netcoreapp3.1/AlsoFitsApi.dll
 /home/phil/Dev/alsofits/AlsoFitsApi/obj/Debug/netcoreapp3.1/AlsoFitsApi.pdb
 /home/phil/Dev/alsofits/AlsoFitsApi/obj/Debug/netcoreapp3.1/AlsoFitsApi.genruntimeconfig.cache
+/home/phil/Dev/alsofits/AlsoFitsApi/bin/Debug/netcoreapp3.1/AlsoFits.core.dll
+/home/phil/Dev/alsofits/AlsoFitsApi/bin/Debug/netcoreapp3.1/AlsoFits.core.pdb

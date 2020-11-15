@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "IP5IBu/gS8pggjO6rQSnOqz2i6M5h4zOpqrFYhIfluEuCASzC4zyBi/NhzEfuNgB2sv+AiiUv0ond6f2f5k/5w==",
+  "success": true,
+  "projectFilePath": "/home/phil/Dev/alsofits/AlsoFits.core/AlsoFits.core.csproj",
+  "expectedPackageFiles": [
+    "/home/phil/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/home/phil/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

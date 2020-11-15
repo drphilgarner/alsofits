@@ -1,6 +1,5 @@
-using AlsoFitsApi.ApiModel;
 
-namespace AlsoFitsApi.ApiModel
+namespace AlsoFits.core.Model
 {
     public class Model
     {

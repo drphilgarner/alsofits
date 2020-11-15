@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "AlsoFitsApi/1.0.0": {
         "dependencies": {
+          "AlsoFits.core": "1.0.0",
           "Dapper": "2.0.35",
           "System.Data.SqlClient": "4.8.2",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -462,6 +463,14 @@
             "assemblyVersion": "4.1.3.0",
             "fileVersion": "4.700.19.56404"
           }
+        }
+      },
+      "AlsoFits.core/1.0.0": {
+        "runtime": {
+          "AlsoFits.core.dll": {}
+        },
+        "compile": {
+          "AlsoFits.core.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -2240,6 +2249,11 @@
       "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
+    },
+    "AlsoFits.core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
       "type": "referenceassembly",

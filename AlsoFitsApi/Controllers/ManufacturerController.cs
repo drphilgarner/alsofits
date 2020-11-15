@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 using AlsoFitsApi.Services;
-using AlsoFitsApi.ApiModel;
+using AlsoFits.core.Model;
 using Microsoft.AspNetCore.Cors;
 
 namespace AlsoFitsApi.Controllers
@@ -26,7 +26,6 @@ namespace AlsoFitsApi.Controllers
         [HttpGet]
         public IEnumerable<Manufacturer> Get()
         {
-            //return new Manufacturer[] {new Manufacturer {FullName="Maserati", ManufacturerId = 66}};
             return _manufacturerRepository.GetManufacturers();
         }
 

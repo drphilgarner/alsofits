@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AlsoFitsApi.Services;
-using AlsoFitsApi.ApiModel;
+using AlsoFits.core.Model;
 using Microsoft.AspNetCore.Cors;
 
 namespace AlsoFitsApi.Controllers

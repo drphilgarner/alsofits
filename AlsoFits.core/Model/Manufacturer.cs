@@ -1,5 +1,5 @@
 
-namespace AlsoFitsApi.ApiModel
+namespace AlsoFits.core.Model
 {
     public class Manufacturer
     {

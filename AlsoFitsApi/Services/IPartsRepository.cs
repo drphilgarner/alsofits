@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using AlsoFitsApi.ApiModel;
+using AlsoFits.core.Model;
 
 namespace AlsoFitsApi.Services
 {

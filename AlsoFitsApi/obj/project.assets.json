@@ -151,6 +151,16 @@
             "rid": "win"
           }
         }
+      },
+      "AlsoFits.core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/AlsoFits.core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AlsoFits.core.dll": {}
+        }
       }
     }
   },
@@ -540,10 +550,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "AlsoFits.core/1.0.0": {
+      "type": "project",
+      "path": "../AlsoFits.core/AlsoFits.core.csproj",
+      "msbuildProject": "../AlsoFits.core/AlsoFits.core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "AlsoFits.core >= 1.0.0",
       "dapper >= 2.0.35",
       "system.data.sqlclient >= 4.8.2"
     ]
@@ -571,7 +587,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/phil/Dev/alsofits/AlsoFits.core/AlsoFits.core.csproj": {
+              "projectPath": "/home/phil/Dev/alsofits/AlsoFits.core/AlsoFits.core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
