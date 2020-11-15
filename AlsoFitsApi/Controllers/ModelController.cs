@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AlsoFitsApi.Services;
 using AlsoFitsApi.ApiModel;
+using Microsoft.AspNetCore.Cors;
 
 namespace AlsoFitsApi.Controllers
 {
 
+    [EnableCors("CorsApi")]
 
     [ApiController]
     [Route("[controller]")]

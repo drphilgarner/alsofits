@@ -4,11 +4,14 @@ using Microsoft.Extensions.Logging;
 
 using AlsoFitsApi.Services;
 using AlsoFitsApi.ApiModel;
+using Microsoft.AspNetCore.Cors;
 
 namespace AlsoFitsApi.Controllers
 {
+    [EnableCors("CorsApi")]
     [ApiController]
     [Route("[controller]")]
+    
     public class ManufacturerController :ControllerBase
     {
         private readonly ILogger<ManufacturerController> _logger;

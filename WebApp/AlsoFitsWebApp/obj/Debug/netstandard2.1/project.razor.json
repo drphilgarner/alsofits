@@ -41,39 +41,6 @@
         }
       },
       {
-        "HashCode": -2020210172,
-        "Kind": "Components.Component",
-        "Name": "AlsoFitsWebApp.Pages.AddPart",
-        "AssemblyName": "AlsoFitsWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "AddPart"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "AlsoFitsWebApp.Pages.AddPart"
-        }
-      },
-      {
-        "HashCode": -98701568,
-        "Kind": "Components.Component",
-        "Name": "AlsoFitsWebApp.Pages.AddPart",
-        "AssemblyName": "AlsoFitsWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "AlsoFitsWebApp.Pages.AddPart"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "AlsoFitsWebApp.Pages.AddPart",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -229505759,
         "Kind": "Components.Component",
         "Name": "AlsoFitsWebApp.Pages.Counter",

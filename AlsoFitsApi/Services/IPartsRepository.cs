@@ -7,7 +7,7 @@ namespace AlsoFitsApi.Services
     {
         IEnumerable<Part> GetPartsByModelAndCategory(int modelId, int categoryId);
 
-        int AddPart(IEnumerable<int> compatibleModels, 
+        void AddPart(IEnumerable<int> compatibleModels, 
                     int partCategoryChildId, 
                     string shortDesc, 
                     string fullDesc, 

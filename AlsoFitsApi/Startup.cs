@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AlsoFitsApi.Services;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -23,9 +24,24 @@ namespace AlsoFitsApi
 
         public IConfiguration Configuration { get; }
 
+        readonly string CorsOrigins = "CorsApi";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var corsBuilder = new CorsPolicyBuilder();
+            corsBuilder.AllowAnyHeader();
+            corsBuilder.AllowAnyMethod();
+            //corsBuilder.AllowAnyOrigin(); // For anyone access.
+            corsBuilder.WithOrigins("http://localhost:5002"); // for a specific url. Don't add a forward slash on the end!
+            corsBuilder.AllowCredentials();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(CorsOrigins, corsBuilder.Build());
+            });
+
+
             services.AddScoped<IModelRepository, ModelRepository>();
             services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
             services.AddScoped<ICategoryRepository, CatergoryRepository>();
@@ -43,9 +59,11 @@ namespace AlsoFitsApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(CorsOrigins);
 
             app.UseAuthorization();
 

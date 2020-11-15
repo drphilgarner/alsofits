@@ -22,5 +22,7 @@ namespace AlsoFitsApi
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+                
     }
 }

@@ -356,6 +356,7 @@
 /home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/AlsoFitsWebApp.pdb
 /home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/RazorDeclaration/Pages/AddPart.razor.g.cs
 /home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/Razor/Pages/AddPart.razor.g.cs
-/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/xW_xCj5ui7dbkS7XiVdwL8YeS8NuFctoEmWwLaLDt1w=.hash
-/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/sy1MJIZdkx_oxWRoTI1D9hsd6C_IRRv0bLo02T1JSTQ=.hash
-/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/uumFojq81xYyEjtRu2kzpODa2XwsJ6XqURK3GFSWicY=.hash
+/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/bin/Debug/netstandard2.1/appsettings.json
+/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/Af7TtHptbEhJdSbyRw0GzOckqNCUE_BUv2C8pfFZG50=.hash
+/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/FmAhnp24iC9-sIYym2oSRFFjZ8jLl6vc2BbyBs5BtvQ=.hash
+/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/zV3ipD2aL_QhfWldaaBwOX-WRAM_FozYygws34CqvPc=.hash

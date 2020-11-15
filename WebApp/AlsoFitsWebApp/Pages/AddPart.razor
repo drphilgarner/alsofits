@@ -1,5 +1,70 @@
 @page "/addpart"
+@inject HttpClient Http
+
 
 <h1>Add a part</h1>
 
 <p>Select a manufacturer</p>
+<select @onchange="@fetchModels"  >
+    @if (manufacturers != null)
+    {
+        @foreach (var manufacturer in manufacturers)
+        {
+            <option value="@manufacturer.manufacturerId">@manufacturer.fullName</option>
+        }
+    }
+</select>
+
+<select @bind="@selectedModelId">
+
+    @if (models != null)
+    {
+        @foreach (var model in models)
+        {
+            <option value="@model.modelId">@model.fullName</option>
+        }
+    }
+</select>
+
+
+
+@code {
+    private Manufacturer[] manufacturers;
+    private Model[] models;
+    public int selectedManufacturerId {get;set;}
+    private int selectedModelId;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        manufacturers = await Http.GetFromJsonAsync<Manufacturer[]>("http://localhost:5000/Manufacturer");
+        
+        Console.WriteLine($"We have {manufacturers.Length} manufacturers, and the first one is {manufacturers.First().fullName}");
+
+
+        
+    }
+
+    public async Task fetchModels(ChangeEventArgs e)
+    {
+        
+        selectedManufacturerId = int.Parse(e.Value.ToString());
+        models = await Http.GetFromJsonAsync<Model[]>($"http://localhost:5000/Model/{selectedManufacturerId}");        
+        
+        Console.WriteLine($"We have {models.Length} models, and the first one is {models.First().fullName}");
+    
+    }
+
+
+    public class Manufacturer
+    {
+        public int manufacturerId { get; set; }
+
+        public string fullName { get; set; }
+    }
+
+    public class Model{
+        public int modelId {get;set;}
+        public string fullName {get;set;}
+    }
+
+}

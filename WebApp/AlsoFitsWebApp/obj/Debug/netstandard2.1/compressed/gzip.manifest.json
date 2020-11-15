@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\/Debug\/netstandard2.1\/integrity\/xW_xCj5ui7dbkS7XiVdwL8YeS8NuFctoEmWwLaLDt1w=.hash",
+      "InputSource": "obj\/Debug\/netstandard2.1\/integrity\/Af7TtHptbEhJdSbyRw0GzOckqNCUE_BUv2C8pfFZG50=.hash",
       "Source": "\/home\/phil\/Dev\/alsofits\/WebApp\/AlsoFitsWebApp\/obj\/Debug\/netstandard2.1\/blazor\/unlinked\/AlsoFitsWebApp.dll",
       "Target": "obj\/Debug\/netstandard2.1\/compressed\/_framework\/_bin\/AlsoFitsWebApp.dll.gz"
     },
@@ -261,7 +261,7 @@
       "Target": "obj\/Debug\/netstandard2.1\/compressed\/_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.gz"
     },
     {
-      "InputSource": "obj\/Debug\/netstandard2.1\/integrity\/sy1MJIZdkx_oxWRoTI1D9hsd6C_IRRv0bLo02T1JSTQ=.hash",
+      "InputSource": "obj\/Debug\/netstandard2.1\/integrity\/FmAhnp24iC9-sIYym2oSRFFjZ8jLl6vc2BbyBs5BtvQ=.hash",
       "Source": "\/home\/phil\/Dev\/alsofits\/WebApp\/AlsoFitsWebApp\/obj\/Debug\/netstandard2.1\/blazor\/unlinked\/AlsoFitsWebApp.pdb",
       "Target": "obj\/Debug\/netstandard2.1\/compressed\/_framework\/_bin\/AlsoFitsWebApp.pdb.gz"
     },
@@ -286,7 +286,7 @@
       "Target": "obj\/Debug\/netstandard2.1\/compressed\/_framework\/blazor.webassembly.js.gz"
     },
     {
-      "InputSource": "obj\/Debug\/netstandard2.1\/integrity\/uumFojq81xYyEjtRu2kzpODa2XwsJ6XqURK3GFSWicY=.hash",
+      "InputSource": "obj\/Debug\/netstandard2.1\/integrity\/zV3ipD2aL_QhfWldaaBwOX-WRAM_FozYygws34CqvPc=.hash",
       "Source": "\/home\/phil\/Dev\/alsofits\/WebApp\/AlsoFitsWebApp\/obj\/Debug\/netstandard2.1\/blazor\/blazor.boot.json",
       "Target": "obj\/Debug\/netstandard2.1\/compressed\/_framework\/blazor.boot.json.gz"
     }

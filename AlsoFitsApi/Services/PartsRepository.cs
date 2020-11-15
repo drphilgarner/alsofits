@@ -26,7 +26,7 @@ namespace AlsoFitsApi.Services
             throw new System.NotImplementedException();
         }
 
-        public int AddPart(IEnumerable<int> compatibleModels, 
+        public void AddPart(IEnumerable<int> compatibleModels, 
                             int partCategoryChildId, 
                             string shortDesc, 
                             string fullDesc, 
@@ -42,8 +42,6 @@ namespace AlsoFitsApi.Services
 
             var partId = result.Single();
 
-            
-
             //add the partmodel rows
             foreach (var modelId in compatibleModels)
             {
@@ -52,9 +50,8 @@ namespace AlsoFitsApi.Services
                     new {PartId = partId, modelId}
                 );
             }
-
             //todo: get this to return something sensible
-            return 1;
+            return;
         }
 
         public PartModel GetPartModel(int modelId, int partId)
