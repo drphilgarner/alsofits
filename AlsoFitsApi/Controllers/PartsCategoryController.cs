@@ -24,11 +24,18 @@ namespace AlsoFitsApi.Controllers
             return _categoryRepository.GetParentCategorys();
         }
 
+        [HttpGet("all")]
+        public IEnumerable<PartCategoryChild> GetAllParts()
+        {
+            return _categoryRepository.GetAllParts();
+        }
+
         [HttpGet("{parentId}")]
         public IEnumerable<PartCategoryChild> GetPartsCategoryById(int parentId)
         {
             return _categoryRepository.GetPartCategoryChildren(parentId);
         }
+
 
     }
 }

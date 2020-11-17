@@ -10,6 +10,7 @@ namespace AlsoFitsApi.Services
         IEnumerable<PartCategoryParent> GetParentCategorys();
 
         IEnumerable<PartCategoryChild> GetPartCategoryChildren(int parentCategoryId);
+        IEnumerable<PartCategoryChild> GetAllParts();
     }
 
 }

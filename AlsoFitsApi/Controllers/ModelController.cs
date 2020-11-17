@@ -29,5 +29,11 @@ namespace AlsoFitsApi.Controllers
             return _modelRepository.GetModels(Id);
         }
 
+        [HttpGet("all")]
+        public IEnumerable<Model> GetAllModels()
+        {
+            return _modelRepository.GetAllModels();
+        }
+
     }
 }

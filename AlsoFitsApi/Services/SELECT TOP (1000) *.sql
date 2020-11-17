@@ -1,2 +1,1 @@
-SELECT TOP (1000) *
-  FROM [alsofits].[dbo].[tbl_Part]
+SELECT mod.[ModelId],mod.[ManufacturerId],mod.[FullName], manu.[FullName] as ManufacturerFullName FROM [alsofits].[dbo].[tbl_Model] as mod JOIN [alsofits].[dbo].[tbl_Manufacturer] manu ON mod.[ManufacturerId] = manu.[ManufacturerId] 

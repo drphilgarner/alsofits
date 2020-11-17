@@ -76,6 +76,20 @@ using AlsoFitsWebApp.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/_Imports.razor"
+using Radzen;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/_Imports.razor"
+using Radzen.Blazor;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/fetchdata")]
     public partial class FetchData : Microsoft.AspNetCore.Components.ComponentBase
     {

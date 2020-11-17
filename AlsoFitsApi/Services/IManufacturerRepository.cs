@@ -16,6 +16,7 @@ namespace AlsoFitsApi.Services
         IEnumerable<Model> GetModels(int manufacturerId);
 
         Model GetModel(int modelId);
+        IEnumerable<Model> GetAllModels();
     }
 
 }

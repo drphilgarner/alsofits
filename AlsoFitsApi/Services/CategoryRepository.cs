@@ -17,7 +17,9 @@ namespace AlsoFitsApi.Services
             this._db = new SqlConnection(_config.GetConnectionString("prod"));
 
         }
+
         
+
         public IEnumerable<PartCategoryParent> GetParentCategorys()
         {
             return _db.Query<PartCategoryParent>("SELECT [PartCategoryParentId], [FullName] from [tbl_PartCategoryParent]");
@@ -26,6 +28,10 @@ namespace AlsoFitsApi.Services
         public IEnumerable<PartCategoryChild> GetPartCategoryChildren(int parentCategoryId)
         {
             return _db.Query<PartCategoryChild>("SELECT [PartCategoryChildId],[FullName] FROM [tbl_PartCategoryChild] WHERE [PartCategoryParentId] = @PartCategoryParentId",new {PartCategoryParentId = parentCategoryId});
+        }
+        public IEnumerable<PartCategoryChild> GetAllParts()
+        {
+            return _db.Query<PartCategoryChild>("SELECT [PartCategoryChildId],[FullName] FROM [tbl_PartCategoryChild]");
         }
 
     }
