@@ -402,8 +402,8 @@
 /home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/compressed/_framework/_bin/System.Reflection.Emit.ILGeneration.dll.br
 /home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/compressed/_framework/_bin/System.Reflection.Emit.dll.br
 /home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/compressed/_framework/_bin/System.Linq.Dynamic.Core.pdb.br
-/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/Fwwl368iodHFxu744wiyFGF5Uoor6-844HsQRB8pRms=.hash
 /home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/cQYaPicW57vxFlmsu-b9oRB6At2un8RcKnAt7hjx1bU=.hash
-/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/ICVqqgUfjBeNh43DGFc6YfxarnuTriL-Ci8hbL1gJfk=.hash
 /home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/M-IP4Sz0HiuklQk0BGkZkPtrG9axzbWTlT4nO52mC10=.hash
-/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/GuqRXYJu7DNa649ts0uWQANnMQwwfYXt57DTdqWt4gM=.hash
+/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/ojHl4djKpPdHNxVMc7OshGJCUKYxagAfUkr-TTvrWuE=.hash
+/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/kFD8yU4t1Ocysck8hdUubkcXDw2EGKPTpAyyeHeYvg0=.hash
+/home/phil/Dev/alsofits/WebApp/AlsoFitsWebApp/obj/Debug/netstandard2.1/integrity/u6GvJL4HK39vl4pRAPlOG4yz__YN-0HarE4CJcneyy4=.hash

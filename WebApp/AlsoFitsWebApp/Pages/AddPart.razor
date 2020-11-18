@@ -9,94 +9,23 @@
 <h1>Add a part that fits multiple vehicles</h1>
 
 
-
-<p>A...</p>
-
-
-<select @onchange="@fetchChildCategories">
-
-    @if (partCategoryParents != null)
-    {
-        @foreach (var parent in partCategoryParents)
-        {
-            <option value="@parent.PartCategoryParentId">@parent.FullName</option>
-        }
-    }
-</select>
-
-
-<select @bind="@selectedPartCategoryChildId">
-
-    @if (partCategoryChildren != null)
-    {
-        @foreach (var child in partCategoryChildren)
-        {
-            <option value="@child.PartCategoryChildId">@child.FullName</option>
-        }
-    }
-</select>
-
-<p>for a </p>
-<select @onchange="@fetchModels">
-    @if (manufacturers != null)
-    {
-
-        @foreach (var manufacturer in manufacturers)
-        {
-            <option value="@manufacturer.ManufacturerId">@manufacturer.FullName</option>
-        }
-    }
-</select>
-
-<select @bind="@selectedModelId">
-
-    @if (models != null)
-    {
-        @foreach (var model in models)
-        {
-            <option value="@model.ModelId">@model.FullName</option>
-        }
-    }
-</select>
-<p>also fits</p>
-<select @onchange="@fetchModels">
-    @if (manufacturers != null)
-    {
-
-        @foreach (var manufacturer in manufacturers)
-        {
-            <option value="@manufacturer.ManufacturerId">@manufacturer.FullName</option>
-        }
-    }
-</select>
-
-<select @bind="@selectedModelId">
-
-    @if (models != null)
-    {
-        @foreach (var model in models)
-        {
-            <option value="@model.ModelId">@model.FullName</option>
-        }
-    }
-</select>
-
-
-
-<p>Now with autocomplete</p>
 <RadzenAutoComplete Data=@allParts TextProperty="FullName" Placeholder="name a part..." FilterOperator="StringFilterOperator.Contains" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                            Style="margin-bottom: 20px" Change=@(args => OnPartCategoryAutocompleteChange(args, "AutoComplete")) />
+                            Style="margin-bottom: 20px" Change=@(args => OnPartCategoryAutocompleteChange(args, "AutoCompletePart")) />
 
 
-<RadzenAutoComplete Data=@allModels TextProperty="CompoundName" Placeholder="for a..." FilterOperator="StringFilterOperator.Contains" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                            Style="margin-bottom: 20px" Change=@(args => OnModelAutocompleteChange(args, "AutoComplete")) />
+<RadzenAutoComplete Data=@allModels Name="AutoCompleteSourceModel" TextProperty="CompoundName" Placeholder="for a..." FilterOperator="StringFilterOperator.Contains" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                            Style="margin-bottom: 20px" Change=@(args => OnModelAutocompleteChange(args, "AutoCompleteSourceModel")) />
 
-                            
+<p>also fits a</p>
+
+<RadzenAutoComplete Data=@allModels Name="AutoCompleteDestinationModel" TextProperty="CompoundName" Placeholder="find a model" FilterOperator="StringFilterOperator.Contains" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                            Style="margin-bottom: 20px" Change=@(args => OnModelAutocompleteChange(args, "AutoCompleteDestinationModel")) />
+
+<button class="btn btn-primary" @onclick="SaveAlsofits">Save</button>
+
+
+
 @code {
-    private Manufacturer[] manufacturers;
-    private Model[] models;
-    private PartCategoryParent[] partCategoryParents;
-    private PartCategoryChild[] partCategoryChildren;
     private PartCategoryChild[] allParts;
     private Model[] allModels;
     public int selectedManufacturerId {get;set;}
@@ -110,11 +39,6 @@
     {
         Console.WriteLine($"Connecting to {Configuration["apiHostUri"]}");
         
-        //load the manufacturers
-        manufacturers = await Http.GetFromJsonAsync<Manufacturer[]>($"{Configuration["apiHostUri"]}/Manufacturer");
-        
-        //load the parent categories
-        partCategoryParents = await Http.GetFromJsonAsync<PartCategoryParent[]>($"{Configuration["apiHostUri"]}/PartsCategory");
         
         //load all parts
         allParts = await Http.GetFromJsonAsync<PartCategoryChild[]>($"{Configuration["apiHostUri"]}/PartsCategory/all");
@@ -124,29 +48,8 @@
         allModels = await Http.GetFromJsonAsync<Model[]>($"{Configuration["apiHostUri"]}/Model/all");
 
 
-        Console.WriteLine($"We have {manufacturers.Length} manufacturers, and the first one is {manufacturers.First().FullName}");
 
-        //populate the models select
-        await fetchModels(new ChangeEventArgs {
-            Value = manufacturers.First().ManufacturerId
-            }
-        );
-
-        //populate the child parts category
-        await fetchChildCategories(new ChangeEventArgs{
-            Value = partCategoryParents.First().PartCategoryParentId
-        });
         
-    }
-
-    public async Task fetchModels(ChangeEventArgs e)
-    {
-        
-        selectedManufacturerId = int.Parse(e.Value.ToString());
-        models = await Http.GetFromJsonAsync<Model[]>($"{Configuration["apiHostUri"]}/Model/{selectedManufacturerId}");        
-        
-        Console.WriteLine($"We have {models.Length} models, and the first one is {models.First().FullName}");
-    
     }
 
     public void OnPartCategoryAutocompleteChange(object value, string name)
@@ -159,14 +62,10 @@
     {
 
     }
-    public async Task fetchChildCategories(ChangeEventArgs e)
+
+    public void SaveAlsofits()
     {
         
-        selectedPartCategoryParentId = int.Parse(e.Value.ToString());
-        partCategoryChildren = await Http.GetFromJsonAsync<PartCategoryChild[]>($"{Configuration["apiHostUri"]}/PartsCategory/{selectedPartCategoryParentId}");        
-        
-        Console.WriteLine($"We have {partCategoryChildren.Length} child categories, and the first one is {partCategoryChildren.First().FullName}");
-    
     }
 
 

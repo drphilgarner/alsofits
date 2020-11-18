@@ -8,7 +8,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "AlsoFitsWebApp.dll": "sha256-Fwwl368iodHFxu744wiyFGF5Uoor6\/844HsQRB8pRms=",
+      "AlsoFitsWebApp.dll": "sha256-ojHl4djKpPdHNxVMc7OshGJCUKYxagAfUkr\/TTvrWuE=",
       "System.Net.Http.Json.dll": "sha256-99dseBOagY3mzu5Y8Eqm8gRI+o8QbbCp7R2Ew9bQ+5E=",
       "System.Buffers.dll": "sha256-ZxXy75PYbzJxNfAc\/SAP1nUYm4gt1jSaOpFnBb9m85M=",
       "mscorlib.dll": "sha256-BaZPMj95+YNe3G4ckTGD6szZFwZeA2MOHn91zTGKDeU=",
@@ -68,7 +68,7 @@
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-dwm+rKImjhxtOmHHVpSxOgl2oh2R26xOWihLaZSv7Vs="
     },
     "pdb": {
-      "AlsoFitsWebApp.pdb": "sha256-ICVqqgUfjBeNh43DGFc6YfxarnuTriL\/Ci8hbL1gJfk=",
+      "AlsoFitsWebApp.pdb": "sha256-kFD8yU4t1Ocysck8hdUubkcXDw2EGKPTpAyyeHeYvg0=",
       "System.Linq.Dynamic.Core.pdb": "sha256-zOBZ+bv44N0h0EaRYZhGqngeYcBonLjpA36C+TrA\/lA=",
       "AlsoFits.core.pdb": "sha256-M\/IP4Sz0HiuklQk0BGkZkPtrG9axzbWTlT4nO52mC10="
     },
