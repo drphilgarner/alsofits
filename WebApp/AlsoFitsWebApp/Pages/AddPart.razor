@@ -1,40 +1,59 @@
 @page "/addpart"
 @inject HttpClient Http
-@using Microsoft.Extensions.Configuration
+@using Microsoft.Extensions.Configuration;
+
 @inject IConfiguration Configuration
 @using AlsoFits.core.Model
 
 
 
 <h1>Add a part that fits multiple vehicles</h1>
-
-
+<EditForm Model="@AddPartFormModel" OnValidSubmit="@HandleValidSubmit">
 <RadzenAutoComplete Data=@allParts TextProperty="FullName" Placeholder="name a part..." FilterOperator="StringFilterOperator.Contains" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
                             Style="margin-bottom: 20px" Change=@(args => OnPartCategoryAutocompleteChange(args, "AutoCompletePart")) />
 
 
 <RadzenAutoComplete Data=@allModels Name="AutoCompleteSourceModel" TextProperty="CompoundName" Placeholder="for a..." FilterOperator="StringFilterOperator.Contains" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                            Style="margin-bottom: 20px" Change=@(args => OnModelAutocompleteChange(args, "AutoCompleteSourceModel")) />
+                            Style="margin-bottom: 20px" Change=@(args => OnSourceModelAutocompleteChange(args, "AutoCompleteSourceModel")) />
 
 <p>also fits a</p>
 
 <RadzenAutoComplete Data=@allModels Name="AutoCompleteDestinationModel" TextProperty="CompoundName" Placeholder="find a model" FilterOperator="StringFilterOperator.Contains" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                            Style="margin-bottom: 20px" Change=@(args => OnModelAutocompleteChange(args, "AutoCompleteDestinationModel")) />
+                            Style="margin-bottom: 20px" Change=@(args => OnDestinationModelAutocompleteChange(args, "AutoCompleteDestinationModel")) />
 
-<button class="btn btn-primary" @onclick="SaveAlsofits">Save</button>
 
+@* Description *@
+<label>your description of the part
+<InputText id="description" @bind-Value="AddPartFormModel.Description" placeholder="description" />
+</label>
+
+@* URI *@
+<InputText id="pdpurl" @bind-Value="AddPartFormModel.PdpUrl" placeholder="link to part" />
+
+@* Currency *@
+<label>Currency
+    <InputSelect @bind-Value="AddPartFormModel.CurrencySymbol">
+                <option value="£">£</option>
+                <option value="$">$</option>
+                <option value="€">€</option>
+            </InputSelect>
+</label>
+@* Price *@
+<label>Typical price
+<InputNumber id="price" @bind-Value="AddPartFormModel.Price" placeholder="9.99" />
+</label>
+
+<button type="submit" class="btn btn-primary" @onclick="SaveAlsofits">Save</button>
+
+</EditForm>
 
 
 @code {
     private PartCategoryChild[] allParts;
     private Model[] allModels;
-    public int selectedManufacturerId {get;set;}
 
-    private int selectedPartCategoryParentId;
-    private int selectedModelId;
+    public AddPartFormModel AddPartFormModel { get; set; } = new AddPartFormModel();
 
-    private int selectedPartCategoryChildId;
-    
     protected override async Task OnInitializedAsync()
     {
         Console.WriteLine($"Connecting to {Configuration["apiHostUri"]}");
@@ -54,19 +73,32 @@
 
     public void OnPartCategoryAutocompleteChange(object value, string name)
     {
-
+        this.AddPartFormModel.PartCategoryId = ((PartCategoryChild)value).PartCategoryChildId;
     }
 
 
-    public void OnModelAutocompleteChange(object value, string name)
+    public void OnSourceModelAutocompleteChange(object value, string name)
     {
-
+        this.AddPartFormModel.SourceModelId = ((Model)value).ModelId;
     }
 
+    public void OnDestinationModelAutocompleteChange(object value, string name)
+    {
+        this.AddPartFormModel.DestinationModelId = ((PartCategoryChild)value).PartCategoryChildId;
+    }
     public void SaveAlsofits()
     {
         
+        
     }
+
+    public void HandleValidSubmit()
+    {
+
+    }
+
+
+
 
 
 }
