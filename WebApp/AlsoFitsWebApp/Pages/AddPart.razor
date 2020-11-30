@@ -4,6 +4,7 @@
 
 @inject IConfiguration Configuration
 @using AlsoFits.core.Model
+@using AlsoFits.core.Tools
 
 
 
@@ -21,28 +22,48 @@
 <RadzenAutoComplete Data=@allModels Name="AutoCompleteDestinationModel" TextProperty="CompoundName" Placeholder="find a model" FilterOperator="StringFilterOperator.Contains" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
                             Style="margin-bottom: 20px" Change=@(args => OnDestinationModelAutocompleteChange(args, "AutoCompleteDestinationModel")) />
 
-
+<br/>
 @* Description *@
-<label>your description of the part
+<label>any helpful additional notes we can use?
 <InputText id="description" @bind-Value="AddPartFormModel.Description" placeholder="description" />
 </label>
+<br/>
+<label>Part number 1
+    <InputText id="partnumber1" @bind-Value="AddPartFormModel.PartNumber1" placeholder="e.g 219-323-00-91A" />
+</label>
 
+<br/>
+<label>Part number 2 (optional)
+    <InputText id="partnumber2" @bind-Value="AddPartFormModel.PartNumber2" placeholder="e.g 219-323-00-91A" />
+</label>
+
+<br/>
+<label>Part number 3 (optional)
+    <InputText id="partnumber3" @bind-Value="AddPartFormModel.PartNumber3" placeholder="e.g 219-323-00-91A" />
+</label>
+
+
+<br/>
 @* URI *@
 <InputText id="pdpurl" @bind-Value="AddPartFormModel.PdpUrl" placeholder="link to part" />
 
+
+<br/>
 @* Currency *@
 <label>Currency
     <InputSelect @bind-Value="AddPartFormModel.CurrencySymbol">
-                <option value="£">£</option>
+                <option value="£" >£</option>
                 <option value="$">$</option>
                 <option value="€">€</option>
             </InputSelect>
 </label>
+
 @* Price *@
 <label>Typical price
 <InputNumber id="price" @bind-Value="AddPartFormModel.Price" placeholder="9.99" />
 </label>
 
+<br/>
 <button type="submit" class="btn btn-primary" @onclick="SaveAlsofits">Save</button>
 
 </EditForm>
@@ -65,31 +86,30 @@
 
         //load all models
         allModels = await Http.GetFromJsonAsync<Model[]>($"{Configuration["apiHostUri"]}/Model/all");
-
-
-
-        
     }
 
     public void OnPartCategoryAutocompleteChange(object value, string name)
     {
-        this.AddPartFormModel.PartCategoryId = ((PartCategoryChild)value).PartCategoryChildId;
+        Console.WriteLine(value);
+        AddPartFormModel.PartCategory = value.ToString();
     }
 
 
     public void OnSourceModelAutocompleteChange(object value, string name)
     {
-        this.AddPartFormModel.SourceModelId = ((Model)value).ModelId;
+        AddPartFormModel.SourceModel = value.ToString();
     }
 
     public void OnDestinationModelAutocompleteChange(object value, string name)
     {
-        this.AddPartFormModel.DestinationModelId = ((PartCategoryChild)value).PartCategoryChildId;
+        AddPartFormModel.DestinationModel = value.ToString();
+        
     }
     public void SaveAlsofits()
     {
-        
-        
+        var debugModel = AddPartFormModel.PropertyList();
+
+        Console.WriteLine(debugModel);
     }
 
     public void HandleValidSubmit()

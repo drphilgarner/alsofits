@@ -11,16 +11,22 @@ namespace AlsoFitsWebApp
         public string PdpUrl { get; set; }
 
         [Required]
-        public int PartCategoryId { get; set; }
+        public string PartCategory { get; set; }
         [Required]
-        public int SourceModelId { get; set; }
+        public string SourceModel { get; set; }
         [Required]
-        public int DestinationModelId { get; set; }
+        public string DestinationModel { get; set; }
+
+        public string PartNumber1 { get; set; }
+
+        public string PartNumber2 { get; set; }
+
+        public string PartNumber3    { get; set; }
 
         [Required]
         public decimal Price { get; set; }
 
-        public char CurrencySymbol {get;set;}
+        public string CurrencySymbol {get;set;}
 
     }
 }
