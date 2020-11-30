@@ -1,9 +1,0 @@
-/home/phil/Dev/alsofits/AlsoFits.core/bin/Debug/netstandard2.0/AlsoFits.core.deps.json
-/home/phil/Dev/alsofits/AlsoFits.core/bin/Debug/netstandard2.0/AlsoFits.core.dll
-/home/phil/Dev/alsofits/AlsoFits.core/bin/Debug/netstandard2.0/AlsoFits.core.pdb
-/home/phil/Dev/alsofits/AlsoFits.core/obj/Debug/netstandard2.0/AlsoFits.core.csprojAssemblyReference.cache
-/home/phil/Dev/alsofits/AlsoFits.core/obj/Debug/netstandard2.0/AlsoFits.core.AssemblyInfoInputs.cache
-/home/phil/Dev/alsofits/AlsoFits.core/obj/Debug/netstandard2.0/AlsoFits.core.AssemblyInfo.cs
-/home/phil/Dev/alsofits/AlsoFits.core/obj/Debug/netstandard2.0/AlsoFits.core.csproj.CoreCompileInputs.cache
-/home/phil/Dev/alsofits/AlsoFits.core/obj/Debug/netstandard2.0/AlsoFits.core.dll
-/home/phil/Dev/alsofits/AlsoFits.core/obj/Debug/netstandard2.0/AlsoFits.core.pdb
