@@ -13,9 +13,9 @@ namespace AlsoFitsWebApp
         [Required]
         public string PartCategory { get; set; }
         [Required]
-        public string SourceModel { get; set; }
+        public int SourceModelId { get; set; }
         [Required]
-        public string DestinationModel { get; set; }
+        public int DestinationModelId { get; set; }
 
         public string PartNumber1 { get; set; }
 

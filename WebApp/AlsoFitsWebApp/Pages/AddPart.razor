@@ -51,8 +51,8 @@
 <br/>
 @* Currency *@
 <label>Currency
-    <InputSelect @bind-Value="AddPartFormModel.CurrencySymbol">
-                <option value="£" >£</option>
+    <InputSelect @bind-Value="selectedCurrency">
+                <option value="£">£</option>
                 <option value="$">$</option>
                 <option value="€">€</option>
             </InputSelect>
@@ -74,6 +74,8 @@
     private Model[] allModels;
 
     public AddPartFormModel AddPartFormModel { get; set; } = new AddPartFormModel();
+
+    private string selectedCurrency = "£";  
 
     protected override async Task OnInitializedAsync()
     {
@@ -97,16 +99,26 @@
 
     public void OnSourceModelAutocompleteChange(object value, string name)
     {
-        AddPartFormModel.SourceModel = value.ToString();
+        Console.WriteLine(value);
+
+        var validModel = allModels.FirstOrDefault(t => t.CompoundName == value.ToString());
+        
+        if (validModel != null)
+            AddPartFormModel.SourceModelId = validModel.ModelId;
     }
 
     public void OnDestinationModelAutocompleteChange(object value, string name)
     {
-        AddPartFormModel.DestinationModel = value.ToString();
+        Console.WriteLine(value);
         
+        var validModel = allModels.FirstOrDefault(t => t.CompoundName == value.ToString());
+        
+        if (validModel != null)
+            AddPartFormModel.DestinationModelId = validModel.ModelId;
     }
     public void SaveAlsofits()
     {
+        AddPartFormModel.CurrencySymbol = selectedCurrency;
         var debugModel = AddPartFormModel.PropertyList();
 
         Console.WriteLine(debugModel);
