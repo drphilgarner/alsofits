@@ -10,6 +10,10 @@
 
 <h1>Add a part that fits multiple vehicles</h1>
 <EditForm Model="@AddPartFormModel" OnValidSubmit="@HandleValidSubmit">
+    
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
 <RadzenAutoComplete Data=@allParts TextProperty="FullName" Placeholder="name a part..." FilterOperator="StringFilterOperator.Contains" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
                             Style="margin-bottom: 20px" Change=@(args => OnPartCategoryAutocompleteChange(args, "AutoCompletePart")) />
 
@@ -118,7 +122,10 @@
     }
     public void SaveAlsofits()
     {
+        
         AddPartFormModel.CurrencySymbol = selectedCurrency;
+
+
         var debugModel = AddPartFormModel.PropertyList();
 
         Console.WriteLine(debugModel);
