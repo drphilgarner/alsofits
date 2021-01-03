@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AlsoFitsWebApp
+namespace AlsoFits.core.Model
 {
     public class AddPartFormModel
     {
@@ -12,6 +12,8 @@ namespace AlsoFitsWebApp
 
         [Required]
         public string PartCategory { get; set; }
+
+        public PartCategoryChild PartCategoryChild {get;set;}
        
         
         [Required]

@@ -36,6 +36,11 @@ namespace AlsoFitsApi.Controllers
             return _categoryRepository.GetPartCategoryChildren(parentId);
         }
 
+        [HttpPost]
+        public void PostAddPartFormModel(AddPartFormModel addPartFormModel)
+        {
+             _categoryRepository.AddPart(addPartFormModel);
+        }
 
     }
 }

@@ -34,5 +34,21 @@ namespace AlsoFitsApi.Services
             return _db.Query<PartCategoryChild>("SELECT [PartCategoryChildId],[FullName] FROM [tbl_PartCategoryChild]");
         }
 
+        public void AddPart(AddPartFormModel addPartFormModel)
+        {
+            //todo: validation that this part for this model doesn't already exist
+
+            var insertPartQry = "INSERT INTO tbl_Part (FullDescription, PartCategoryChildId) OUTPUT INSERTED.PartId VALUES (@desc, @catId)";
+
+            //todo: add support for part numbers
+            var partId = _db.QuerySingle<int>(insertPartQry, new {desc = addPartFormModel.Description,catId = addPartFormModel.PartCategoryChild.PartCategoryChildId});
+
+            //now relate the part to the model
+            var partSourceModelId = _db.QuerySingle<int>(@"INSERT INTO tbl_PartModel (PartId, ModelId) OUTPUT INSERTED.PartModelId VALUES (@partid, @modelid)", new {partid = partId, modelid = addPartFormModel.SourceModelId});
+            var partDestModelId = _db.QuerySingle<int>(@"INSERT INTO tbl_PartModel (PartId, ModelId) OUTPUT INSERTED.PartModelId VALUES (@partid, @modelid)", new {partid = partId, modelid = addPartFormModel.DestinationModelId});
+
+
+            throw new System.NotImplementedException();
+        }
     }
 }

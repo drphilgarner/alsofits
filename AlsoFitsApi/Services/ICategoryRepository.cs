@@ -11,6 +11,8 @@ namespace AlsoFitsApi.Services
 
         IEnumerable<PartCategoryChild> GetPartCategoryChildren(int parentCategoryId);
         IEnumerable<PartCategoryChild> GetAllParts();
-    }
+
+        void AddPart(AddPartFormModel addPartFormModel);
+    }   
 
 }

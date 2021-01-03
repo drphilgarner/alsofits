@@ -98,6 +98,11 @@
     {
         Console.WriteLine(value);
         AddPartFormModel.PartCategory = value.ToString();
+
+        var validPart = allParts.FirstOrDefault(t => t.FullName == value.ToString());
+
+        if (validPart != null)
+            AddPartFormModel.PartCategoryChild = validPart;
     }
 
 
