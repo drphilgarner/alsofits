@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = AlsoFitsApi.Tests
+build_property.ProjectDir = /home/phil/Dev/alsofits/AlsoFitsApi.Tests/
